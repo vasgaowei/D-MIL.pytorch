@@ -136,7 +136,7 @@ class DMIL(nn.Module):
             im_labels = labels.data.cpu().numpy()
             #seg_map = seg_map.data.cpu().numpy()
             boxes = boxes[:, 1:]
-            mask, proposals0 = check_cover_CL_M_max_area_4(cls0_prob.data.cpu().numpy(), cls1_prob.data.cpu().numpy(),
+            mask, proposals0 = instance_selector(cls0_prob.data.cpu().numpy(), cls1_prob.data.cpu().numpy(),
                                                            cls2_prob.data.cpu().numpy(), cls3_prob.data.cpu().numpy(), boxes, im_labels)
             im_cls_prob_0 = cls0_prob_cls.sum(dim=0, keepdim=True)
             im_cls_prob_1 = cls1_prob_cls.sum(dim=0, keepdim=True)
@@ -310,7 +310,7 @@ def get_highest_score_proposals(boxes, cls_prob, im_labels):
                  'gt_scores': gt_scores}
     return proposals
 
-def check_cover_CL_M_max_area_4(cls0_prob, cls1_prob, cls2_prob, cls3_prob, rois, im_labels):
+def instance_selector(cls0_prob, cls1_prob, cls2_prob, cls3_prob, rois, im_labels):
     mask = np.ones_like(cls1_prob)
     proposals = {'gt_boxes' : np.zeros((0,4)),
                  'gt_classes': np.zeros((0,1)),

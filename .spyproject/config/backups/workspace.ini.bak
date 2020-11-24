@@ -6,5 +6,5 @@ save_non_project_files = False
 
 [main]
 version = 0.2.0
-recent_files = ['../../../../../../home/vasgaoweithu/.config/spyder-py3/temp.py', 'lib/model/dmil/vgg16.py', 'lib/model/dmil/resnet.py']
+recent_files = ['lib/model/dmil/vgg16.py', 'lib/model/dmil/dmil.py', 'tools/trainval_net.py', 'tools/test_net.py', 'train.sh', 'test.sh', 'lib/datasets/coco.py']
 
