@@ -1,0 +1,87 @@
+"""Transform a roidb into a trainable roidb by adding a bunch of metadata."""
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
+import datasets
+import numpy as np
+from model.utils.config import cfg
+from datasets.factory import get_imdb
+import PIL
+import pdb
+
+def prepare_roidb(imdb):
+  """Enrich the imdb's roidb by adding some derived quantities that
+  are useful for training. This function precomputes the maximum
+  overlap, taken over ground-truth boxes, between each ROI and
+  each ground-truth box. The class with maximum overlap is also
+  recorded.
+  """
+
+  roidb = imdb.roidb
+  if not (imdb.name.startswith('coco')):
+    sizes = [PIL.Image.open(imdb.image_path_at(i)).size
+         for i in range(imdb.num_images)]
+         
+  for i in range(len(imdb.image_index)):
+    roidb[i]['img_id'] = imdb.image_id_at(i)
+    roidb[i]['image'] = imdb.image_path_at(i)
+    if not (imdb.name.startswith('coco')):
+      roidb[i]['width'] = sizes[i][0]
+      roidb[i]['height'] = sizes[i][1]
+
+def rank_roidb_ratio(roidb):
+    # rank roidb based on the ratio between width and height.
+    ratio_large = 2 # largest ratio to preserve.
+    ratio_small = 0.5 # smallest ratio to preserve.    
+    
+    ratio_index = np.arange(len(roidb))
+    return ratio_index
+
+def filter_roidb(roidb):
+    # filter the image without bounding box.
+    print('before filtering, there are %d images...' % (len(roidb)))
+    i = 0
+    while i < len(roidb):
+      if (np.sum(roidb[i]['labels']) <= 0) or (roidb[i]['boxes'].size < 100):
+        del roidb[i]
+        i -= 1
+      i += 1
+
+    print('after filtering, there are %d images...' % (len(roidb)))
+    return roidb
+
+def combined_roidb(imdb_names, training=True):
+  """
+  Combine multiple roidbs
+  """
+
+  def get_training_roidb(imdb):
+    """Returns a roidb (Region of Interest database) for use in training."""
+    if cfg.TRAIN.USE_FLIPPED:
+      print('Appending horizontally-flipped training examples...')
+      imdb.append_flipped_images()
+      print('done')
+
+    print('Preparing training data...')
+
+    prepare_roidb(imdb)
+    #ratio_index = rank_roidb_ratio(imdb)
+    print('done')
+
+    return imdb.roidb
+  
+  def get_roidb(imdb_name):
+    imdb = get_imdb(imdb_name)
+    print('Loaded dataset `{:s}` for training'.format(imdb.name))
+    roidb = get_training_roidb(imdb)
+    return imdb, roidb
+
+  imdb, roidb = get_roidb(imdb_names)
+
+  if training:
+    roidb = filter_roidb(roidb)
+
+  ratio_index = rank_roidb_ratio(roidb)
+
+  return imdb, roidb, ratio_index
