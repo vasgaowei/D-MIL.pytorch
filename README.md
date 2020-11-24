@@ -7,15 +7,15 @@ This implementation is based on ruotianluo's [https://github.com/ruotianluo/pyto
 
 # Performances
   1). On PASCAL VOC 2007 dataset
-  model    | #GPUs | batch size | lr | lr_decay | max iteration size |  time/epoch | mAP | CorLoc
+  model    | #GPUs | batch size | lr | lr_decay | max iteration size | mAP | CorLoc
 ---------|--------|-----|--------|-----|-----|-------|--------|-----
 VGG-16     | 1 | 1 | 1e-3 | 30000 | 40000 |  -  |  53.7  |  71.2
 
 
   2). On PASCAL VOC 2012 dataset
-  model    | #GPUs | batch size | lr        | lr_decay | max iteration size |  time/epoch | mAP | CorLoc
----------|--------|-----|--------|-----|-----|-------|--------|-----
-VGG-16     | 1 | 2 | 1e-3 | 80000   | 110000   |  - |  49.8  |  71.9
+  model    | #GPUs | batch size | lr        | lr_decay | max iteration size | mAP | CorLoc
+---------|--------|-----|--------|-----|-----|--------|-----
+VGG-16     | 1 | 1 | 1e-3 | 80000   | 110000   |  49.8  |  71.9
 
 # Prerequisites
 * Nvidia GPU Tesla V100
