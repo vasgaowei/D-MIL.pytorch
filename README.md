@@ -71,20 +71,20 @@ This implementation is based on jwyang's [pytorch-faster-rcnn](https://github.co
 # Train your own model
   For vgg16 backbone, we can train and evaluate the model using the following commands
   ```
-  bash both_2007.sh prefix GPU_ID
+  bash both_2007.sh $prefix $GPU_ID
   ```
   And for evaluation on detection mAP, we can using the following commands
   ```
-  bash test_test_2007.sh prefix
+  bash test_test_2007.sh $prefix
   ```
   And for evaluation on CorLoc, we can using the following commands
   ```
-  bash test_corloc_2007.sh prefix
+  bash test_corloc_2007.sh $prefix
   ```
 # Retrain using Faster RCNN
   First, run the following commands to get the pseudo ground-truths
   ```
-  bash retrain_VOC.sh prefix
+  bash retrain_VOC.sh $prefix
   ```
   The we will get annotations of pseudo ground-truths for retraining **Faster RCNN**. These annotations are located in the following folder:
   ```
