@@ -90,5 +90,7 @@ This implementation is based on jwyang's [pytorch-faster-rcnn](https://github.co
   ```
   $VOCdevkit2007/VOC2007/retrain_annotation_score_top1             # VOC utility code
   ```
-  For retraining Faster RCNN on PASCAL VOC 2012, we can change command in file ```retrain_VOC.sh``` file.
+  For retraining Faster RCNN on PASCAL VOC 2012, we can change codes in line 8, 9, 18 and 19 in file ```retrain_VOC.sh``` file, where we changing the dataset from ```VOC 2007```  to ```VOC 2012```
   The code for retraining Faster RCNN is in another branch.
+# Training and testing on COCO 2014 dataset
+  Please go to the corresponding branch. 
