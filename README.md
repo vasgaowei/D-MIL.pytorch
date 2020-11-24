@@ -3,7 +3,9 @@
 This codebase is for tranining and testing on COCO 2014 dataset.
 This implementation is based on jwyang's [pytorch-faster-rcnn](https://github.com/jwyang/faster-rcnn.pytorch) and ppengtang's [pcl.pytorch](https://github.com/ppengtang/pcl.pytorch).
 
-**Using vgg16 as backbone, the trained model has detection mAP@0.5 24.7 and mAP@[.5,.95] 11.3 **
+**Using vgg16 as backbone, the trained model has detection mAP@0.5 24.7 and mAP@[.5,.95] 11.3**
+
+The model is trained on COCO 2014 train and tested on COCO 2014 val. 
 
 # Performances
   1). On COCO 2014dataset
