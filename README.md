@@ -84,6 +84,11 @@ This implementation is based on jwyang's [pytorch-faster-rcnn](https://github.co
 # Retrain using Faster RCNN
   First, run the following commands to get the pseudo ground-truths
   ```
-  bash .sh prefix
+  bash retrain_VOC.sh prefix
   ```
-  
+  The we will get annotations of pseudo ground-truths for retraining **Faster RCNN**. These annotations are located in the following folder:
+  ```
+  $VOCdevkit2007/VOC2007/retrain_annotation_score_top1             # VOC utility code
+  ```
+  For retraining Faster RCNN on PASCAL VOC 2012, we can change command in file ```retrain_VOC.sh``` file.
+  The code for retraining Faster RCNN is in another branch.
