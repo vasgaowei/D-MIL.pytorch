@@ -76,4 +76,4 @@ VGG-16     | 4 | 4 | 1e-3 | 3   | 5   |  53 hr |  24.7  |  11.3
   bash test.sh $prefix
   ```
   We can modify ```train.sh``` and ```test.sh``` for specifying the GPU IDs.
-  When using ```batch_size``` 8, we can using 8 GPUs with each image for each GPU. Meanwhile, the learning rate should be doubled as ```2e-3```.
+  When using ```batch_size``` 8, we can using 8 GPUs with each image on each GPU. Meanwhile, the learning rate should be doubled as ```2e-3```.
