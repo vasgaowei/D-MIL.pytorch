@@ -251,7 +251,7 @@ class pascal_voc(imdb):
         Load image and bounding boxes info from XML file in the PASCAL VOC
         format.
         """
-        filename = os.path.join(self._data_path, 'retrain_annotation_score_top1_cvpr', index + '.xml')
+        filename = os.path.join(self._data_path, 'retrain_annotation_score_top1', index + '.xml')
         tree = ET.parse(filename)
         objs = tree.findall('object')
         # if not self.config['use_diff']:
