@@ -114,7 +114,7 @@ class pascal_voc(imdb):
       return roidb
 
     #gt_roidb = [self._load_pascal_annotation_retrain(index)
-    gt_roidb = [self._load_pascal_annotation_retrain_dcl(index)
+    gt_roidb = [self._load_pascal_annotation_retrain_dmil(index)
                 for index in self.image_index]
     with open(cache_file, 'wb') as fid:
       pickle.dump(gt_roidb, fid, pickle.HIGHEST_PROTOCOL)
@@ -246,7 +246,7 @@ class pascal_voc(imdb):
             'gt_overlaps': overlaps,
             'flipped': False,
             'seg_areas': seg_areas}
-  def _load_pascal_annotation_retrain_dcl(self, index):
+  def _load_pascal_annotation_retrain_dmil(self, index):
         """
         Load image and bounding boxes info from XML file in the PASCAL VOC
         format.
