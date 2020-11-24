@@ -69,7 +69,7 @@ VGG-16     | 1 | 2 | 5e-4 | 10   | 18   |  - |  49.6  |  70.1
 # Download the pre-trained ImageNet models
   VGG16: [Dropbox](https://www.dropbox.com/s/s3brpk0bdq60nyb/vgg16_caffe.pth?dl=0), [VT Server](https://filebox.ece.vt.edu/~jw2yang/faster-rcnn/pretrained-base-models/vgg16_caffe.pth) and put it in the data/pretrained_model and rename it vgg16_caffe.pth. The folder has the following form.
   ```
-  $ data/pretrained_model/vgg16.pth
+  $ data/pretrained_model/vgg16_caffe.pth
   ```
 # Download the Selective Search proposals for PASCAL VOC 2007
   Download it from: https://dl.dropboxusercontent.com/s/orrt7o6bp6ae0tc/selective_search_data.tgz
