@@ -381,7 +381,7 @@ if __name__ == '__main__':
             '{:s}.xml').format(image_name)
       re_annopath = os.path.join(
               imdb._devkit_path,
-              'VOC' + imdb._year, 'retrain_annotation_score_top2',
+              'VOC' + imdb._year, 'retrain_annotation_score_top1',
               '{:s}.xml').format(image_name)
       
       im = cv2.imread(imdb.image_path_at(i))
