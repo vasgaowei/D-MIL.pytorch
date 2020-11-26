@@ -9,18 +9,18 @@ The model is trained on COCO 2014 train and tested on COCO 2014 val.
 
 # Performances
   1). On COCO 2014dataset
-  model    | #GPUs | batch size | lr        | lr_decay | max_epoch     |  time/epoch | mAP@0.5 | mAP@[.5,.95]
----------|--------|-----|--------|-----|-----|-------|--------|-----
-VGG-16     | 4 | 4 | 1e-3 | 3   | 5   |  10.6 hr |  24.7  |  11.3
+  model    | #GPUs | batch size | lr        | lr_decay | max_epoch | mAP@0.5 | mAP@[.5,.95]
+---------|--------|-----|--------|-----|-----|--------|-----
+VGG-16     | 4 | 4 | 1e-3 | 3   | 5   |  24.7  |  11.3
 
 
   2). Detection performance with different numbers of MIL Learners
-  #num    |    mAP@0.5    |   mAP@[.5,.95]   |  time
-  --------|---------------|------------------|--------
-  2       |    23.4       |  10.7            |  43.30 hr
-  3       |    23.6       |  10.8            |  48.04 hr
-  4       |    24.7       |  11.3            |  53.05 hr
-  5       |    23.8       |  10.8            |  59.77 hr
+  #num    |    mAP@0.5    |   mAP@[.5,.95]     
+  --------|---------------|------------------
+  2       |    23.4       |  10.7            
+  3       |    23.6       |  10.8            
+  4       |    24.7       |  11.3            
+  5       |    23.8       |  10.8            
   
 
 # Prerequisites
