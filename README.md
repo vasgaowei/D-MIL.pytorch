@@ -5,6 +5,18 @@ This implementation is based on jwyang's [pytorch-faster-rcnn](https://github.co
 
 **Using vgg16 as backbone, the trained model has detection mAP 53.5 on PASCAL VOC 2007 and 49.6 on PASCAL VOC 2012**
 
+# Performances
+  1). On PASCAL VOC 2007 dataset
+  model    | #GPUs | batch size | lr        | lr_decay | max_epoch     |  time/epoch | mAP | CorLoc
+---------|--------|-----|--------|-----|-----|-------|--------|-----
+VGG-16     | 1 | 2 | 5e-4 | 10   | 18   | 2 hr |  53.5  |  68.7
+
+
+  2). On PASCAL VOC 2012 dataset
+  model    | #GPUs | batch size | lr        | lr_decay | max_epoch     |  time/epoch | mAP | CorLoc
+---------|--------|-----|--------|-----|-----|-------|--------|-----
+VGG-16     | 1 | 2 | 5e-4 | 10   | 18   |  - |  49.6  |  70.1
+
 # Prerequisites
 * Nvidia GPU Tesla V100
 * Ubuntu 16.04 LTS
@@ -57,7 +69,7 @@ This implementation is based on jwyang's [pytorch-faster-rcnn](https://github.co
 # Download the pre-trained ImageNet models
   VGG16: [Dropbox](https://www.dropbox.com/s/s3brpk0bdq60nyb/vgg16_caffe.pth?dl=0), [VT Server](https://filebox.ece.vt.edu/~jw2yang/faster-rcnn/pretrained-base-models/vgg16_caffe.pth) and put it in the data/pretrained_model and rename it vgg16_caffe.pth. The folder has the following form.
   ```
-  $ data/pretrained_model/vgg16.pth
+  $ data/pretrained_model/vgg16_caffe.pth
   ```
 # Download the Selective Search proposals for PASCAL VOC 2007
   Download it from: https://dl.dropboxusercontent.com/s/orrt7o6bp6ae0tc/selective_search_data.tgz
@@ -81,16 +93,17 @@ This implementation is based on jwyang's [pytorch-faster-rcnn](https://github.co
   ```
   bash test_corloc_2007.sh $prefix
   ```
-# Retrain using Faster RCNN
+# Retrain using Fast RCNN
   First, run the following commands to get the pseudo ground-truths
   ```
   bash retrain_VOC.sh $prefix
   ```
-  The we will get annotations of pseudo ground-truths for retraining **Faster RCNN**. These annotations are located in the following folder:
+  The we will get annotations of pseudo ground-truths for retraining **Fast RCNN**. These annotations are located in the following folder:
   ```
   $VOCdevkit2007/VOC2007/retrain_annotation_score_top1             # VOC utility code
   ```
-  For retraining Faster RCNN on PASCAL VOC 2012, we can change codes in line 8, 9, 18 and 19 in file ```retrain_VOC.sh``` file, where we changing the dataset from ```VOC 2007```  to ```VOC 2012```
-  The code for retraining Faster RCNN is in another branch.
+  For retraining Fast RCNN on PASCAL VOC 2012, we can change codes in line 8, 9, 18 and 19 in file ```retrain_VOC.sh``` file, where we changing the dataset from ```VOC 2007```  to ```VOC 2012```
+  The codes for retraining Fast RCNN is in branch [https://github.com/vasgaowei/D-MIL.pyorch/tree/fast-rcnn-retrain-07](fast-rcnn-retrain-07) and branch [https://github.com/vasgaowei/D-MIL.pyorch/tree/fast-rcnn-retrain-12](fast-rcnn-retrain-12). Please go to the corresponding branch for relevant configurations. 
 # Training and testing on COCO 2014 dataset
-  Please go to the corresponding branch. 
+  The codes for training and testing on COCO dataset are in branch [https://github.com/vasgaowei/D-MIL.pyorch/tree/D-MIL-COCO.pytorch](D-MIL-COCO). Please go to the corresponding branch for relavant settings.
+  
