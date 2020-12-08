@@ -312,10 +312,10 @@ if __name__ == '__main__':
         except StopIteration:
           data_iter = iter(dataloader)
           data = next(data_iter)
-        cls_loss_0, cls_loss_1, cls_loss_cl_0, cls_loss_cl_1, dc_loss, pcl_loss0, pcl_loss1, pcl_loss2 = dmil_model(**data)
+        cls_loss_0, cls_loss_1, cls_loss_cl_0, cls_loss_cl_1, kl_loss0, kl_loss1, dc_loss, pcl_loss0, pcl_loss1, pcl_loss2 = dmil_model(**data)
 
-        loss = cls_loss_0.mean() + cls_loss_1.mean() + pcl_loss0.mean() + cls_loss_cl_0.mean() + cls_loss_cl_1.mean() + dc_loss.mean() \
-             + pcl_loss1.mean() + pcl_loss2.mean()
+        loss = cls_loss_0.mean() + cls_loss_1.mean() + cls_loss_cl_0.mean() + cls_loss_cl_1.mean() + kl_loss0.mean()\
+            + kl_loss1.mean() +dc_loss.mean()+ pcl_loss0.mean() + pcl_loss1.mean() + pcl_loss2.mean()
         loss_temp += loss.item()
 
         # backward
@@ -333,6 +333,8 @@ if __name__ == '__main__':
         loss_cls_cl_0 = cls_loss_cl_0.item()
         loss_cls_cl_1 = cls_loss_cl_1.item()
         loss_dc = dc_loss.item()
+        loss_kl0 = kl_loss0.item()
+        loss_kl1 = kl_loss1.item()
         loss_pcl0 = pcl_loss0.item()
         loss_pcl1 = pcl_loss1.item()
         loss_pcl2 = pcl_loss2.item()
@@ -340,8 +342,8 @@ if __name__ == '__main__':
         print("[session %d][epoch %2d][iter %4d/%4d] loss: %.4f, lr: %.2e" \
                                 % (args.session, epoch, step, iters_per_epoch, loss_temp, lr))
         print("\t\t\ttime cost: %f" % (end-start))
-        print("\t\t\tloss_cls_0: %.4f, loss_cls_1: %.4f, loss_cls_cl: %.4f, loss_dc: %.4f, loss_pcl0: %.4f, loss_pcl1: %.4f, loss_pcl2 %.4f" \
-                      % (loss_cls_0, loss_cls_1, (loss_cls_cl_0 + loss_cls_cl_1), loss_dc, loss_pcl0, loss_pcl1, loss_pcl2))
+        print("\t\t\tloss_cls_0: %.4f, loss_cls_1: %.4f, loss_cls_cl: %.4f, loss_kl: %.4f, loss_dc: %.4f, loss_pcl0: %.4f, loss_pcl1: %.4f, loss_pcl2 %.4f" \
+                      % (loss_cls_0, loss_cls_1, (loss_cls_cl_0 + loss_cls_cl_1), (loss_kl0 + loss_kl1), loss_dc, loss_pcl0, loss_pcl1, loss_pcl2))
         if args.use_tfboard:
           info = {
             'loss': loss_temp,
@@ -349,6 +351,7 @@ if __name__ == '__main__':
             'loss_cls_1': loss_cls_1,
             'loss_cls_cl': (loss_cls_cl_0 + loss_cls_cl_1),
             'loss_dc': loss_dc, 
+            'loss_kl': (kl_loss0 + kl_loss1),
             'loss_pcl0': loss_pcl0,
             'loss_pcl1': loss_pcl1,
             'loss_pcl2': loss_pcl2
@@ -363,7 +366,7 @@ if __name__ == '__main__':
     save_checkpoint({
       'session': args.session,
       'epoch': epoch + 1,
-      'model': fasterRCNN.state_dict(),
+      'model': dmil_model.state_dict(),
       'optimizer': optimizer.state_dict(),
       'pooling_mode': cfg.POOLING_MODE,
     }, save_name)

@@ -70,6 +70,7 @@ class DMIL(nn.Module):
             eps = 1e-9
             device_id = pcl_prob0.get_device()
             epoch = cfg.TRAIN.EPOCH
+            alpha = (epoch - 1) / 17. * 2./3 * 0.1
 
             cls0_score0 = self.RCNN_cls0_score0(pooled_feat)
             cls0_score1 = self.RCNN_cls0_score1(pooled_feat)
@@ -103,6 +104,9 @@ class DMIL(nn.Module):
             
             dc_loss = discrepancy_l1_loss(F.softmax(cls0_score1,0), F.softmax(cls1_score1,0), im_labels.copy())
             
+            kl_loss_0 = alpha*learner_detector_collaboration(F.softmax(cls0_score0, 1), pcl_prob2.detach().clone(), boxes, im_labels)
+            kl_loss_1 = alpha*learner_detector_collaboration(F.softmax(cls1_score0, 1), pcl_prob2.detach().clone(), boxes, im_labels)
+            
             proposals0 = instane_selector(cls0_prob.detach().clone().data.cpu().numpy().copy(), cls1_prob.clone().detach().data.cpu().numpy().copy(),boxes.copy(), im_labels.copy())
             pcl_loss0 = self.pcl_losses0(boxes, im_labels, pcl_prob0, proposals0)
             
@@ -112,7 +116,7 @@ class DMIL(nn.Module):
             proposals2 = get_highest_score_proposals(boxes.copy(), pcl_prob1.detach().data.cpu().numpy().copy(), im_labels.copy())
             pcl_loss2 = self.pcl_losses2(boxes, im_labels, pcl_prob2, proposals2)
             
-            return cls_loss_0.unsqueeze(0), cls_loss_1.unsqueeze(0), cls_loss_cl_0.unsqueeze(0), cls_loss_cl_1.unsqueeze(0), dc_loss.unsqueeze(0), pcl_loss0.unsqueeze(0), pcl_loss1.unsqueeze(0), pcl_loss2.unsqueeze(0)
+            return cls_loss_0.unsqueeze(0), cls_loss_1.unsqueeze(0), cls_loss_cl_0.unsqueeze(0), cls_loss_cl_1.unsqueeze(0), kl_loss_0.unsqueeze(0), kl_loss_1.unsqueeze(0), dc_loss.unsqueeze(0), pcl_loss0.unsqueeze(0), pcl_loss1.unsqueeze(0), pcl_loss2.unsqueeze(0)
 
     def _init_weights(self):
         def normal_init(m, mean, stddev, truncated=False):
@@ -200,6 +204,18 @@ def get_highest_score_proposals(boxes, cls_prob, im_labels):
                  'gt_scores': gt_scores}
 
     return proposals
+
+def learner_detector_collaboration(prob1, pcl2, rois, im_labels):
+    loss = torch.tensor([0], dtype=prob1.dtype).to(prob1.device)
+    num_class = im_labels.shape[1]
+    for id_cls in range(num_class):
+        if im_labels[0, id_cls] > 0:
+            id_box = torch.argmax(pcl2[:, id_cls+1])
+            _, _, ious = iou_other_self_mutual(rois, rois[id_box])
+            id_cluster = np.where(ious>0.7)[0]
+            cl_score = prob1[id_cluster, id_cls]
+            loss += - torch.log(cl_score.clamp(1e-6)).mean()
+    return loss / np.sum(im_labels)
     
 class PCL_Losses(nn.Module):
     def __init__(self):
