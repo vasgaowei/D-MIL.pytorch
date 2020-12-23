@@ -167,4 +167,26 @@ python3 projects/WSL/tools/train_net.py --num-gpus 4 --config-file projects/WSL/
 python3 projects/WSL/tools/train_net.py --num-gpus 4 --config-file projects/WSL/configs/PascalVOC-Detection/pcl_V_16_DC5_1x.yaml OUTPUT_DIR output/pcl_V_16_DC5_VOC07_`date +'%Y-%m-%d_%H-%M-%S'`
 ```
 
+### DMIL
+
+#### ResNet18-WS
+```
+python3 projects/WSL/tools/train_net.py --num-gpus 4 --config-file projects/WSL/configs/PascalVOC-Detection/dmil_WSR_18_DC5_1x.yaml OUTPUT_DIR output/dmil_WSR_18_DC5_VOC07_`date +'%Y-%m-%d_%H-%M-%S'`
+```
+
+#### ResNet50-WS
+```
+python3 projects/WSL/tools/train_net.py --num-gpus 4 --config-file projects/WSL/configs/PascalVOC-Detection/dmil_WSR_50_DC5_1x.yaml OUTPUT_DIR output/dmil_WSR_50_DC5_VOC07_`date +'%Y-%m-%d_%H-%M-%S'`
+```
+
+#### ResNet101-WS
+```
+python3 projects/WSL/tools/train_net.py --num-gpus 4 --config-file projects/WSL/configs/PascalVOC-Detection/dmil_WSR_101_DC5_1x.yaml OUTPUT_DIR output/dmil_WSR_101_DC5_VOC07_`date +'%Y-%m-%d_%H-%M-%S'`
+```
+
+#### VGG16
+```
+python3 projects/WSL/tools/train_net.py --num-gpus 4 --config-file projects/WSL/configs/PascalVOC-Detection/dmil_V_16_DC5_1x.yaml OUTPUT_DIR output/dmil_V_16_DC5_VOC07_`date +'%Y-%m-%d_%H-%M-%S'`
+```
+
 
