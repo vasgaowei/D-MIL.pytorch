@@ -103,10 +103,10 @@ VGG-16     | 1 | 2 | 5e-4 | 10   | 18   |  - |  49.6  |  70.1
   $VOCdevkit2007/VOC2007/retrain_annotation_score_top1             # VOC utility code
   ```
   For retraining Fast RCNN on PASCAL VOC 2012, we can change codes in line 8, 9, 18 and 19 in file ```retrain_VOC.sh``` file, where we changing the dataset from ```VOC 2007```  to ```VOC 2012```
-  The codes for retraining Fast RCNN is in branch [https://github.com/vasgaowei/D-MIL.pyorch/tree/fast-rcnn-retrain-07](fast-rcnn-retrain-07) and branch [https://github.com/vasgaowei/D-MIL.pyorch/tree/fast-rcnn-retrain-12](fast-rcnn-retrain-12). Please go to the corresponding branch for relevant configurations. 
+  The codes for retraining Fast RCNN is in branch [fast-rcnn-retrain-07](https://github.com/vasgaowei/D-MIL.pyorch/tree/fast-rcnn-retrain-07) and branch [fast-rcnn-retrain-12](https://github.com/vasgaowei/D-MIL.pyorch/tree/fast-rcnn-retrain-12). Please go to the corresponding branch for relevant configurations. 
 # Training and testing on COCO 2014 dataset
-  The codes for training and testing on COCO dataset are in branch [https://github.com/vasgaowei/D-MIL.pyorch/tree/D-MIL-COCO.pytorch](D-MIL-COCO). Please go to the corresponding branch for relavant settings.
+  The codes for training and testing on COCO dataset are in branch [D-MIL-COCO](https://github.com/vasgaowei/D-MIL.pyorch/tree/D-MIL-COCO.pytorch). Please go to the corresponding branch for relavant settings.
   
 # Training on ResNet
-  As mentioned in paper[https://www.ecva.net/papers/eccv_2020/papers_ECCV/html/479_ECCV_2020_paper.php](DRN), it's not trivial do train a WSOD model on non-plain backbone(e.g., ResNet, DenseNet). And for evaluating the effectiveness of D-MIL on ResNet, we implement our model based on [https://github.com/shenyunhang/DRN-WSOD-pytorch/tree/DRN-WSOD/projects/WSL](DRN). Check corresponding branch for more details. 
+  As mentioned in paper[DRN](https://www.ecva.net/papers/eccv_2020/papers_ECCV/html/479_ECCV_2020_paper.php), it's not trivial do train a WSOD model on non-plain backbone(e.g., ResNet, DenseNet). And for evaluating the effectiveness of D-MIL on ResNet, we implement our model based on [DRN](https://github.com/shenyunhang/DRN-WSOD-pytorch/tree/DRN-WSOD/projects/WSL). Check corresponding branch for more details. 
   
