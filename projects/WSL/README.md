@@ -6,6 +6,12 @@ This project is based on [Detectron2](https://github.com/facebookresearch/detect
 ## License
 
 DRN-WSOD is released under the [Apache 2.0 license](LICENSE).
+# Performances
+  1). On PASCAL VOC 2007 dataset 
+  model    | #GPUs | batch size | lr        | lr_decay | max_iterations     |  mAP 
+---------|--------|-----|--------|-----|--------|-----
+ResNet50+PCL     | 4 | 4 | 1e-2 | 35000   | 60000   | 50.8
+ResNet50+DMIL     | 4 | 4 | 1e-2 | 35000   | 60000   | 55.1 
 
 ## Installation
 
