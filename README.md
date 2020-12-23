@@ -108,5 +108,5 @@ VGG-16     | 1 | 2 | 5e-4 | 10   | 18   |  - |  49.6  |  70.1
   The codes for training and testing on COCO dataset are in branch [D-MIL-COCO](https://github.com/vasgaowei/D-MIL.pyorch/tree/D-MIL-COCO.pytorch). Please go to the corresponding branch for relavant settings.
   
 # Training on ResNet
-  As mentioned in paper[DRN](https://www.ecva.net/papers/eccv_2020/papers_ECCV/html/479_ECCV_2020_paper.php), it's not trivial do train a WSOD model on non-plain backbone(e.g., ResNet, DenseNet). And for evaluating the effectiveness of D-MIL on ResNet, we implement our model based on [DRN](https://github.com/shenyunhang/DRN-WSOD-pytorch/tree/DRN-WSOD/projects/WSL). Check corresponding branch [D-MIL-ResNet](https://github.com/vasgaowei/D-MIL.pytorch/tree/detectron_wsod/projects/WSL) for more details. 
+  As mentioned in paper [DRN](https://www.ecva.net/papers/eccv_2020/papers_ECCV/html/479_ECCV_2020_paper.php), it's not trivial do train a WSOD model on non-plain backbone(e.g., ResNet, DenseNet). And for evaluating the effectiveness of D-MIL on ResNet, we implement our model based on [DRN](https://github.com/shenyunhang/DRN-WSOD-pytorch/tree/DRN-WSOD/projects/WSL). Check corresponding branch [D-MIL-ResNet](https://github.com/vasgaowei/D-MIL.pytorch/tree/detectron_wsod/projects/WSL) for more details. 
   
