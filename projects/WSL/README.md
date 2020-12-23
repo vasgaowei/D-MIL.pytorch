@@ -1,28 +1,11 @@
-# Enabling Deep Residual Networks for Weakly Supervised Object Detection
+# D-MIL
 
-By [Yunhang Shen](), [Rongrong Ji](), [Yan Wang](), [Zhiwei Chen](), [Feng Zheng](), [Feiyue Huang](), [Yunsheng Wu]().
 
-ECCV 2020 Paper.
-
-This project is based on [Detectron2](https://github.com/facebookresearch/detectron2).
+This project is based on [Detectron2](https://github.com/facebookresearch/detectron2) and [DRN](https://github.com/shenyunhang/DRN-WSOD-pytorch/tree/DRN-WSOD/projects/WSL)
 
 ## License
 
 DRN-WSOD is released under the [Apache 2.0 license](LICENSE).
-
-
-## Citing DRN-WSOD
-
-If you find DRN-WSOD useful in your research, please consider citing:
-
-```
-@inproceedings{DRN-WSOD_2020_ECCV,
-	author = {Shen, Yunhang and Ji, Rongrong and Wang, Yan and Chen, Zhiwei and Zheng, Feng and Huang, Feiyue and Wu, Yunsheng},
-	title = {Enabling Deep Residual Networks for Weakly Supervised Object Detection},
-	booktitle = {European Conference on Computer Vision (ECCV)},
-	year = {2020},
-}   
-```
 
 ## Installation
 
