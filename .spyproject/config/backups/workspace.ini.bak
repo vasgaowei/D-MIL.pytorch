@@ -1,0 +1,10 @@
+[workspace]
+restore_data_on_startup = True
+save_data_on_exit = True
+save_history = True
+save_non_project_files = False
+
+[main]
+version = 0.2.0
+recent_files = ['projects/WSL/wsl/modeling/roi_heads/fast_rcnn.py', 'projects/WSL/wsl/modeling/roi_heads/roi_heads_dmil_v1.py', 'projects/WSL/wsl/modeling/roi_heads/roi_heads_dmil.py', 'projects/WSL/wsl/modeling/meta_arch/rcnn.py']
+
