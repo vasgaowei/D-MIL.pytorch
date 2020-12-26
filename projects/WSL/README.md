@@ -16,9 +16,9 @@ ResNet50+DMIL     | 4 | 4 | 1e-2 | 35000   | 60000   | 55.1
 ## Installation
 
 Install our forked Detectron2:
+First download the codes of detectron_wsod branch, then 
 ```
-git clone https://github.com/shenyunhang/DRN-WSOD-pytorch.git
-cd DRN-WSOD-pytorch
+cd detectron_wsod
 python3 -m pip install -e .
 ```
 If you have problem of installing Detectron2, please checking [the instructions](https://detectron2.readthedocs.io/tutorials/install.html).
