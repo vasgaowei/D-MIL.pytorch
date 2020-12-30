@@ -5,7 +5,7 @@ This project is based on [Detectron2](https://github.com/facebookresearch/detect
 
 ## License
 
-DRN-WSOD is released under the [Apache 2.0 license](LICENSE).
+D-MIL is released under the [MIT license](https://github.com/vasgaowei/D-MIL.pytorch/blob/master/LICENSE).
 # Performances
   1). On PASCAL VOC 2007 dataset 
   model    | #GPUs | batch size | lr        | lr_decay | max_iterations     |  mAP 
@@ -23,7 +23,7 @@ python3 -m pip install -e .
 ```
 If you have problem of installing Detectron2, please checking [the instructions](https://detectron2.readthedocs.io/tutorials/install.html).
 
-Install DRN-WSOD project:
+Install D-MIL project:
 ```
 cd projects/WSL
 pip3 install -r requirements.txt
@@ -56,7 +56,7 @@ mv models $DRN-WSOD
 
 Then we have the following directory structure:
 ```
-DRN-WSOD
+detectron_wsod
 |_ models
 |  |_ DRN-WSOD
 |     |_ resnet18_ws_model_120.pkl
