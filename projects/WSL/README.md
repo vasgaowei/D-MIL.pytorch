@@ -51,14 +51,14 @@ python3 projects/WSL/tools/proposal_convert.py voc_2007_test datasets/proposals/
 
 Download models from this [here](https://1drv.ms/f/s!Am1oWgo9554dgRQ8RE1SRGvK7HW2):
 ```
-mv models $DRN-WSOD
+mv models $detectron_wsod
 ```
 
 Then we have the following directory structure:
 ```
 detectron_wsod
 |_ models
-|  |_ DRN-WSOD
+|  |_ detectron_wsod
 |     |_ resnet18_ws_model_120.pkl
 |     |_ resnet150_ws_model_120.pkl
 |     |_ resnet101_ws_model_120.pkl
