@@ -2,6 +2,7 @@
 **This is the official implementation of D-MIL in pytorch**
 
 This implementation is based on jwyang's [pytorch-faster-rcnn](https://github.com/jwyang/faster-rcnn.pytorch) and ppengtang's [pcl.pytorch](https://github.com/ppengtang/pcl.pytorch).
+
 **Please go to other branches if you want to train D-MIL on COCO dataset or using ResNet as Backbone. For retraining on pascal voc 2007 and 2012 dataset based on Fast R-CNN, you can also go to the corresponding branch.**
 
 **Using vgg16 as backbone, the trained model has detection mAP 53.5 on PASCAL VOC 2007 and 49.6 on PASCAL VOC 2012**
