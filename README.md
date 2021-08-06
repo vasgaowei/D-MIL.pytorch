@@ -1,5 +1,5 @@
 # D-MIL.pyorch
-**This is the official implementation of D-MIL in pytorch**
+This is the official pytorch implementation of our paper ***Discrepant Multiple Instance Learning for Weakly Supervised Object Detection***, which is accepted by [***Pattern Recognition***](https://www.journals.elsevier.com/pattern-recognition). 
 
 This implementation is based on jwyang's [pytorch-faster-rcnn](https://github.com/jwyang/faster-rcnn.pytorch) and ppengtang's [pcl.pytorch](https://github.com/ppengtang/pcl.pytorch).
 
