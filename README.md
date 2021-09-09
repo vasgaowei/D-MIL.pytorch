@@ -9,12 +9,14 @@ The model is trained on COCO 2014 train and tested on COCO 2014 val.
 
 # Performances
   1). On COCO 2014dataset
+  
   model    | #GPUs | batch size | lr        | lr_decay | max_epoch | mAP@0.5 | mAP@[.5,.95]
 ---------|--------|-----|--------|-----|-----|--------|-----
 VGG-16     | 4 | 4 | 1e-3 | 3   | 5   |  24.7  |  11.3
 
 
   2). Detection performance with different numbers of MIL Learners
+  
   #num    |    mAP@0.5    |   mAP@[.5,.95]     
   --------|---------------|------------------
   2       |    23.4       |  10.7            
