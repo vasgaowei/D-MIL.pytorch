@@ -10,12 +10,14 @@ This implementation is based on jwyang's [pytorch-faster-rcnn](https://github.co
 
 # Performances
   1). On PASCAL VOC 2007 dataset
+  
   model    | #GPUs | batch size | lr        | lr_decay | max_epoch     |  time/epoch | mAP | CorLoc
 ---------|--------|-----|--------|-----|-----|-------|--------|-----
 VGG-16     | 1 | 2 | 5e-4 | 10   | 18   | 2 hr |  53.5  |  68.7
 
 
   2). On PASCAL VOC 2012 dataset
+  
   model    | #GPUs | batch size | lr        | lr_decay | max_epoch     |  time/epoch | mAP | CorLoc
 ---------|--------|-----|--------|-----|-----|-------|--------|-----
 VGG-16     | 1 | 2 | 5e-4 | 10   | 18   |  - |  49.6  |  70.1
