@@ -114,4 +114,16 @@ VGG-16     | 1 | 2 | 5e-4 | 10   | 18   |  - |  49.6  |  70.1
   
 # Training on ResNet
   As mentioned in paper [DRN](https://www.ecva.net/papers/eccv_2020/papers_ECCV/html/479_ECCV_2020_paper.php), it's not trivial do train a WSOD model on non-plain backbone(e.g., ResNet, DenseNet). And for evaluating the effectiveness of D-MIL on ResNet, we implement our model based on [DRN](https://github.com/shenyunhang/DRN-WSOD-pytorch/tree/DRN-WSOD/projects/WSL). Check corresponding branch [D-MIL-ResNet](https://github.com/vasgaowei/D-MIL.pytorch/tree/detectron_wsod/projects/WSL) for more details. 
-  
+
+# Citation
+  If you find this repository is useful and use this code for a paper please cite:
+  ```
+  @article{gao2021discrepant,
+    title={Discrepant Multiple Instance Learning for Weakly Supervised Object Detection},
+    author={Gao, Wei and Wan, Fang and Yue, Jun and Xu, Songcen and Ye, Qixiang},
+    journal={Pattern Recognition},
+    pages={108233},
+    year={2021},
+    publisher={Elsevier}
+  }
+  ```
